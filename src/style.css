@@ -1,0 +1,78 @@
+body {
+  background: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  display: block;
+  background-attachment: fixed;
+  font-family: "Saira Condensed", sans-serif;
+}
+
+.citySearch {
+  background: rgba(81, 108, 141, 0.3);
+  border: solid 1px transparent;
+  margin: 20px auto 20px 110px;
+}
+
+.citySearchButton {
+  background: rgba(81, 108, 141, 0.3);
+  border: solid 1px transparent;
+  margin: 20px auto 20px 110px;
+}
+
+#current-location-button {
+  background: rgba(81, 108, 141, 0.3);
+  border: solid 1px transparent;
+  margin: 20px 100px 20px auto;
+}
+
+.mainCity {
+  text-transform: capitalize;
+}
+
+.centerWeather {
+  text-align: center;
+  margin: 150px auto 0px;
+}
+
+.currentWeather {
+  color: #304163;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 50px;
+  margin-top: 25px;
+}
+
+.dayTime {
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: 100px;
+}
+
+.degrees {
+  font-size: 40px;
+  color: #304163;
+}
+
+h3 {
+  margin-top: 50px;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+ul {
+  list-style: none;
+}
+
+.footerWeather {
+  text-align: center;
+  font-size: 25px;
+  background: rgba(81, 108, 141, 0.5);
+  color: #28385e;
+  margin: 120px 80px 0px;
+  padding: 20px 20px;
+  border-radius: 8px;
+}

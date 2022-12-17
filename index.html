@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <form class="input-group col" id="search-city">
+          <input
+            type="search"
+            class="form-control citySearch"
+            placeholder="City Name"
+            aria-describedby="button-addon2"
+            id="city-name"
+          />
+          <button
+            class="btn btn-outline-secondary citySearchButton"
+            type="submit"
+            id="button-addon2"
+          >
+            Search
+          </button>
+        </form>
+        <button
+          class="btn btn-outline-secondary col-md-auto citySearchButton"
+          type="submit"
+          id="current-location-button"
+        >
+          Current Location
+        </button>
+      </div>
+      <div class="row centerWeather">
+        <div class="col currentWeather">
+          <h1>
+            <div class="mainCity" id="city">Isfahan</div>
+            <div class="dayTime">
+              <span id="day">Anyday</span> <span id="time">00:00</span>
+            </div>
+          </h1>
+        </div>
+
+        <div class="col currentWeather">
+          <h2>
+            <span id="temperature">13</span
+            ><span class="degrees" id="celsius">℃</span>
+            <div class="dayTime" id="weather">Cloudy</div>
+          </h2>
+        </div>
+
+        <div class="col currentWeather">
+          <h3>
+            <div>Humidity: <span id="humidity">46</span>%</div>
+            <div>Wind Speed: <span id="wind-speed">4</span> km/h</div>
+          </h3>
+        </div>
+      </div>
+      <ul>
+        <div class="row footerWeather">
+          <li class="col dayOne">
+            <div>☀</div>
+            <div>FRI</div>
+            <div>7°–14°</div>
+          </li>
+          <li class="col dayTwo">
+            <div>☀</div>
+            <div>SAT</div>
+            <div>6°–14°</div>
+          </li>
+          <li class="col dayThree">
+            <div>☀</div>
+            <div>SUN</div>
+            <div>5°–13°</div>
+          </li>
+          <li class="col dayFour">
+            <div>☀</div>
+            <div>MON</div>
+            <div>4°–14°</div>
+          </li>
+          <li class="col dayFive">
+            <div>☀</div>
+            <div>TUE</div>
+            <div>4°–16°</div>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <script src="src/brain.js"></script>
+  </body>
+</html>
