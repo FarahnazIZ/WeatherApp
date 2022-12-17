@@ -44,6 +44,7 @@ function showTemperatureC(no) {
 }
 
 function geoInfo(response) {
+  console.log(response.data.name);
   let latitude = response.data[0].lat;
   let longtitude = response.data[0].lon;
   let apiKey = "2065f51b78f51fb9f65c3557ebb73d5b";
@@ -55,9 +56,7 @@ function search(event) {
   event.preventDefault();
   let city = document.querySelector("#city-name");
   let changeCity = document.querySelector("#city");
-  let apiKey = "2065f51b78f51fb9f65c3557ebb73d5b";
-  let apiCityUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city.value}&limit=1&appid=${apiKey}`;
-  axios.get(apiCityUrl).then(geoInfo);
+  start(city.value);
   if (city.value) {
     changeCity.innerHTML = `${city.value}`;
   } else {
@@ -66,8 +65,16 @@ function search(event) {
   }
 }
 
+function start(city) {
+  let apiKey = "2065f51b78f51fb9f65c3557ebb73d5b";
+  let apiCityUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
+  axios.get(apiCityUrl).then(geoInfo);
+}
+
 let cityName = document.querySelector("#search-city");
 cityName.addEventListener("submit", search);
+
+start("Isfahan");
 
 function showCurrentLocation(data) {
   let currentLatitude = data.coords.latitude;
