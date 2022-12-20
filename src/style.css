@@ -57,8 +57,24 @@ h1 {
 
 .units {
   font-size: 30px;
-  color: #304163;
   margin-bottom: 100px;
+}
+
+#celsius {
+  text-decoration: none;
+}
+
+#fahrenheit {
+  text-decoration: none;
+}
+
+.active {
+  color: #304163;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+  color: #304163;
 }
 
 h3 {
