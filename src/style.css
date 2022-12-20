@@ -29,12 +29,11 @@ body {
 
 .centerWeather {
   text-align: center;
-  margin: 150px auto 0px;
+  margin: 100px auto 0px;
 }
 
 .currentWeather {
   color: #304163;
-  margin: 20px;
   text-transform: capitalize;
 }
 
@@ -49,11 +48,16 @@ h1 {
   text-transform: capitalize;
 }
 
-h2 {
-  font-size: 100px;
+#icon {
+  width: 150px;
 }
 
-.degrees {
+.currentTemperature {
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+#celsius {
   font-size: 40px;
   color: #304163;
 }
@@ -73,7 +77,7 @@ ul {
   font-size: 25px;
   background: rgba(81, 108, 141, 0.5);
   color: #28385e;
-  margin: 120px 80px 0px;
+  margin: 100px 80px 0px;
   padding: 20px 20px;
   border-radius: 8px;
 }

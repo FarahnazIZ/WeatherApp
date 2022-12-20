@@ -41,10 +41,15 @@ function showTemperatureC(no) {
   let currentLocation = no.data.name;
   let changeCity = document.querySelector("#city");
   changeCity.innerHTML = `${currentLocation}`;
+  let icon = document.querySelector("#icon");
+  let changeIcon = no.data.weather[0].icon;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${changeIcon}@2x.png`
+  );
 }
 
 function geoInfo(response) {
-  console.log(response.data.name);
   let latitude = response.data[0].lat;
   let longtitude = response.data[0].lon;
   let apiKey = "2065f51b78f51fb9f65c3557ebb73d5b";
