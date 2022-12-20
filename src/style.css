@@ -35,6 +35,7 @@ body {
 .currentWeather {
   color: #304163;
   margin: 20px;
+  text-transform: capitalize;
 }
 
 h1 {

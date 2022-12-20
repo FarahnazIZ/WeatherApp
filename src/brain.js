@@ -25,7 +25,7 @@ let time = document.querySelector("#time");
 time.innerHTML = `${hours}:${minutes}`;
 
 function showTemperatureC(no) {
-  console.log(no.data.name);
+  console.log(no.data);
   let temperature = document.querySelector("#temperature");
   let roundTemperature = Math.round(no.data.main.temp);
   temperature.innerHTML = `${roundTemperature}`;
