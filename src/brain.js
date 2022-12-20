@@ -24,11 +24,11 @@ date.innerHTML = `${day}`;
 let time = document.querySelector("#time");
 time.innerHTML = `${hours}:${minutes}`;
 
-function showTemperatureC(no) {
+function displayTemperature(no) {
   console.log(no.data);
   let temperature = document.querySelector("#temperature");
-  let roundTemperature = Math.round(no.data.main.temp);
-  temperature.innerHTML = `${roundTemperature}`;
+  celsiusTemperature = no.data.main.temp;
+  temperature.innerHTML = Math.round(celsiusTemperature);
   let weather = document.querySelector("#weather");
   let changeWeather = no.data.weather[0].description;
   weather.innerHTML = `${changeWeather}`;
@@ -54,7 +54,7 @@ function geoInfo(response) {
   let longtitude = response.data[0].lon;
   let apiKey = "2065f51b78f51fb9f65c3557ebb73d5b";
   let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiGeoUrl).then(showTemperatureC);
+  axios.get(apiGeoUrl).then(displayTemperature);
 }
 
 function search(event) {
@@ -76,8 +76,29 @@ function start(city) {
   axios.get(apiCityUrl).then(geoInfo);
 }
 
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  let fahrenheit = (celsiusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheit);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let cityName = document.querySelector("#search-box");
 cityName.addEventListener("submit", search);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 start("Isfahan");
 
@@ -86,7 +107,7 @@ function showCurrentLocation(data) {
   let currentLongtitude = data.coords.longitude;
   let apiKey = "2065f51b78f51fb9f65c3557ebb73d5b";
   let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongtitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiGeoUrl).then(showTemperatureC);
+  axios.get(apiGeoUrl).then(displayTemperature);
 }
 
 function showCurrentCoord() {

@@ -51,13 +51,14 @@ h1 {
 }
 
 .currentTemperature {
-  font-size: 50px;
+  font-size: 70px;
   margin-bottom: 0;
 }
 
-#celsius {
-  font-size: 40px;
+.units {
+  font-size: 30px;
   color: #304163;
+  margin-bottom: 100px;
 }
 
 h3 {
@@ -75,12 +76,12 @@ ul {
   font-size: 25px;
   background: rgba(81, 108, 141, 0.5);
   color: #28385e;
-  margin: 100px 80px 0px;
+  margin: 90px 80px 0px;
   padding: 20px 20px;
   border-radius: 8px;
 }
 
 .sourceCode {
   text-align: center;
-  margin: 20px;
+  margin: 5px;
 }
