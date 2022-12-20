@@ -59,7 +59,7 @@ function geoInfo(response) {
 
 function search(event) {
   event.preventDefault();
-  let city = document.querySelector("#city-name");
+  let city = document.querySelector("#city-search");
   let changeCity = document.querySelector("#city");
   start(city.value);
   if (city.value) {
@@ -76,7 +76,7 @@ function start(city) {
   axios.get(apiCityUrl).then(geoInfo);
 }
 
-let cityName = document.querySelector("#search-city");
+let cityName = document.querySelector("#search-box");
 cityName.addEventListener("submit", search);
 
 start("Isfahan");

@@ -23,13 +23,13 @@
   <body>
     <div class="container">
       <div class="row justify-content-center">
-        <form class="input-group col" id="search-city">
+        <form class="input-group col" id="search-box">
           <input
             type="search"
-            class="form-control citySearch"
+            class="form-control"
             placeholder="City Name"
             aria-describedby="button-addon2"
-            id="city-name"
+            id="city-search"
           />
           <button
             class="btn btn-outline-secondary citySearchButton"
@@ -48,16 +48,16 @@
         </button>
       </div>
       <div class="row centerWeather">
-        <div class="col currentWeather">
+        <div class="col">
           <h1>
-            <div class="mainCity" id="city"></div>
+            <div id="city"></div>
             <div class="dayTime">
               <span id="day"></span> <span id="time">00:00</span>
             </div>
           </h1>
         </div>
 
-        <div class="col currentWeather">
+        <div class="col">
           <h2>
             <div><img src="" alt="" id="icon" /></div>
             <div class="currentTemperature">
@@ -66,7 +66,7 @@
           </h2>
         </div>
 
-        <div class="col currentWeather">
+        <div class="col">
           <h3>
             <div id="weather"></div>
             <div>Humidity: <span id="humidity"></span>%</div>
