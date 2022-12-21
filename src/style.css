@@ -89,12 +89,25 @@ ul {
 
 .footerWeather {
   text-align: center;
-  font-size: 25px;
   background: rgba(81, 108, 141, 0.5);
   color: #28385e;
   margin: 90px 80px 0px;
   padding: 20px 20px;
   border-radius: 8px;
+}
+
+.forecastDay {
+  font-size: 25px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.forecastTemperature {
+  font-size: 20px;
+}
+
+.forecastTemperatureMax {
+  opacity: 0.7;
 }
 
 .sourceCode {
