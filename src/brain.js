@@ -1,28 +1,27 @@
-function addZero(i) {
-  if (i < 10) {
-    i = "0" + i;
+function callDate(timestamp) {
+  let now = new Date(timestamp);
+  function addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
   }
-  return i;
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let hours = addZero(now.getHours());
+  let minutes = addZero(now.getMinutes());
+
+  return `${day} ${hours}:${minutes}`;
 }
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let hours = addZero(now.getHours());
-let minutes = addZero(now.getMinutes());
-
-let date = document.querySelector("#day");
-date.innerHTML = `${day}`;
-
-let time = document.querySelector("#time");
-time.innerHTML = `${hours}:${minutes}`;
 
 function callDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -89,6 +88,8 @@ function displayTemperature(no) {
     "src",
     `http://openweathermap.org/img/wn/${changeIcon}@2x.png`
   );
+  let date = document.querySelector("#date");
+  date.innerHTML = callDate(no.data.dt * 1000);
 }
 
 function geoInfo(response) {
