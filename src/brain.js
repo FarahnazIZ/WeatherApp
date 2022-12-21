@@ -68,36 +68,36 @@ function displayForecast(response) {
 function displayTemperature(no) {
   console.log(no.data);
   let temperature = document.querySelector("#temperature");
-  celsiusTemperature = no.data.main.temp;
+  celsiusTemperature = no.data.temperature.current;
   temperature.innerHTML = Math.round(celsiusTemperature);
   let weather = document.querySelector("#weather");
-  let changeWeather = no.data.weather[0].description;
+  let changeWeather = no.data.condition.description;
   weather.innerHTML = `${changeWeather}`;
   let humidity = document.querySelector("#humidity");
-  let changeHumidity = no.data.main.humidity;
+  let changeHumidity = no.data.temperature.humidity;
   humidity.innerHTML = `${changeHumidity}`;
   let windSpeed = document.querySelector("#wind-speed");
   let changeWindSpeed = Math.round(no.data.wind.speed);
   windSpeed.innerHTML = `${changeWindSpeed}`;
-  let currentLocation = no.data.name;
+  let currentLocation = no.data.city;
   let changeCity = document.querySelector("#city");
   changeCity.innerHTML = `${currentLocation}`;
   let icon = document.querySelector("#icon");
-  let changeIcon = no.data.weather[0].icon;
+  let changeIcon = no.data.condition.icon;
   icon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${changeIcon}@2x.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${changeIcon}.png`
   );
   let date = document.querySelector("#date");
-  date.innerHTML = callDate(no.data.dt * 1000);
+  date.innerHTML = callDate(no.data.time * 1000);
 }
 
 function geoInfo(response) {
-  let latitude = response.data[0].lat;
-  let longtitude = response.data[0].lon;
-  let apiKey = "2065f51b78f51fb9f65c3557ebb73d5b";
-  let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=metric`;
-  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=metric`;
+  let latitude = response.data.coordinates.latitude;
+  let longtitude = response.data.coordinates.longitude;
+  let apiKey = "892435254bc5d7b0f0663663abo3t153";
+  let apiGeoUrl = `https://api.shecodes.io/weather/v1/current?lon=${longtitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+  let apiForecastUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=metric`;
   axios.get(apiGeoUrl).then(displayTemperature);
   axios.get(apiForecastUrl).then(displayForecast);
 }
@@ -116,8 +116,8 @@ function search(event) {
 }
 
 function start(city) {
-  let apiKey = "2065f51b78f51fb9f65c3557ebb73d5b";
-  let apiCityUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
+  let apiKey = "892435254bc5d7b0f0663663abo3t153";
+  let apiCityUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
   axios.get(apiCityUrl).then(geoInfo);
 }
 
@@ -155,8 +155,8 @@ displayForecast();
 function showCurrentLocation(data) {
   let currentLatitude = data.coords.latitude;
   let currentLongtitude = data.coords.longitude;
-  let apiKey = "2065f51b78f51fb9f65c3557ebb73d5b";
-  let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongtitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "892435254bc5d7b0f0663663abo3t153";
+  let apiGeoUrl = `https://api.shecodes.io/weather/v1/current?lon=${currentLongtitude}&lat=${currentLatitude}&key=${apiKey}&units=metric`;
   axios.get(apiGeoUrl).then(displayTemperature);
 }
 
