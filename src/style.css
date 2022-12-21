@@ -5,22 +5,20 @@ body {
   font-family: "Saira Condensed", sans-serif;
 }
 
+.searchBox {
+  margin: 30px 80px;
+  margin-left: 65px;
+}
+
 #city-search {
   background: rgba(81, 108, 141, 0.3);
   border: solid 1px transparent;
-  margin: 20px auto 20px 110px;
 }
 
 .citySearchButton {
   background: rgba(81, 108, 141, 0.3);
   border: solid 1px transparent;
-  margin: 20px auto 20px 110px;
-}
-
-#current-location-button {
-  background: rgba(81, 108, 141, 0.3);
-  border: solid 1px transparent;
-  margin: 20px 100px 20px auto;
+  cursor: pointer;
 }
 
 #city {
