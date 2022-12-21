@@ -24,10 +24,11 @@ date.innerHTML = `${day}`;
 let time = document.querySelector("#time");
 time.innerHTML = `${hours}:${minutes}`;
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.list[0].main);
   let forecast = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  let forecastHTML = `<div class="row justify-content-center">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -81,7 +82,9 @@ function geoInfo(response) {
   let longtitude = response.data[0].lon;
   let apiKey = "2065f51b78f51fb9f65c3557ebb73d5b";
   let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=metric`;
+  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=metric`;
   axios.get(apiGeoUrl).then(displayTemperature);
+  axios.get(apiForecastUrl).then(displayForecast);
 }
 
 function search(event) {
