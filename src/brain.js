@@ -24,6 +24,33 @@ date.innerHTML = `${day}`;
 let time = document.querySelector("#time");
 time.innerHTML = `${hours}:${minutes}`;
 
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2 forecastWeather">
+            <img
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              width="70px"
+            />
+            <div class="forecastDay">${day}</div>
+            <div class="forecastTemperature">
+              <span class="forecastTemperatureMin">7°</span>–<span
+                class="forecastTemperatureMax"
+                >14°</span
+              >
+            </div>
+          </div>
+        `;
+  });
+
+  forecastHTML = forecastHTML + `<div/>`;
+  forecast.innerHTML = forecastHTML;
+}
+
 function displayTemperature(no) {
   console.log(no.data);
   let temperature = document.querySelector("#temperature");
@@ -105,6 +132,7 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 start("Isfahan");
+displayForecast();
 
 function showCurrentLocation(data) {
   let currentLatitude = data.coords.latitude;
