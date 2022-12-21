@@ -88,12 +88,15 @@ ul {
 }
 
 .footerWeather {
-  text-align: center;
   background: rgba(81, 108, 141, 0.5);
   color: #28385e;
   margin: 90px 80px 0px;
   padding: 20px 20px;
   border-radius: 8px;
+}
+
+.forecast {
+  text-align: center;
 }
 
 .forecastDay {
